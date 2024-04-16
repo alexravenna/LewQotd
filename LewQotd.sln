@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qotd.Web.Blazor", "Qotd.Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qotd.Shared", "Qotd.Shared\Qotd.Shared.csproj", "{31A1E25A-9499-4887-BF7A-F78C31018E64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qotd.Domain", "Qotd.Domain\Qotd.Domain.csproj", "{92E2ADF2-7C73-4CB1-8DAB-B2EA2F77FAD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qotd.Data", "Qotd.Data\Qotd.Data.csproj", "{F6A3E332-FD78-4BCE-BDFC-5C564144D6DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{31A1E25A-9499-4887-BF7A-F78C31018E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31A1E25A-9499-4887-BF7A-F78C31018E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31A1E25A-9499-4887-BF7A-F78C31018E64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92E2ADF2-7C73-4CB1-8DAB-B2EA2F77FAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E2ADF2-7C73-4CB1-8DAB-B2EA2F77FAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E2ADF2-7C73-4CB1-8DAB-B2EA2F77FAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92E2ADF2-7C73-4CB1-8DAB-B2EA2F77FAD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A3E332-FD78-4BCE-BDFC-5C564144D6DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A3E332-FD78-4BCE-BDFC-5C564144D6DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A3E332-FD78-4BCE-BDFC-5C564144D6DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A3E332-FD78-4BCE-BDFC-5C564144D6DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
