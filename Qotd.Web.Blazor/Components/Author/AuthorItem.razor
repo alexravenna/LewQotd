@@ -1,0 +1,20 @@
+﻿@if(AuthorVm is not null) {
+    <tr>
+        <td>
+            <AuthorImage Image="@AuthorVm.Photo"
+                         ImageMimeType="@AuthorVm.PhotoMimeType"
+                         alt="@AuthorVm.Name"
+                         width="120">
+            </AuthorImage>
+        </td>
+        <td>@AuthorVm.Name</td>
+        <td>@AuthorVm.Description</td>
+        <td>@(AuthorVm.BirthDate is not null ? AuthorVm.BirthDate.Value.ToShortDateString() : "k.A.")</td>
+        <td>
+            <!-- Aktion -->
+            <button>Löschen</button>
+        </td>
+    </tr>
+}
+
+

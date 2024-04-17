@@ -30,4 +30,23 @@ public class QotdService(IDbContextFactory<QotdContext> dbContextFactory) : IQot
             AuthorPhotoMimeType = randomQuote.Author?.PhotoMimeType
         };
     }
+
+    public async Task<IEnumerable<AuthorViewModel>?> GetAuthorsAsync()
+    {
+        await using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var authors = await context.Authors.OrderBy(c => c.Name).ToListAsync();
+
+        var authorsViewModel = authors.Select(c => new AuthorViewModel
+        {
+            Id = c.Id,
+            Name = c.Name,
+            Description = c.Description,
+            BirthDate = c.BirthDate,
+            Photo = c.Photo,
+            PhotoMimeType = c.PhotoMimeType
+        });
+
+        return authorsViewModel;
+    }
 }
