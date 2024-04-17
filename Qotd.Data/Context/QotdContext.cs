@@ -15,12 +15,16 @@ public class QotdContext : DbContext
 
     public QotdContext(DbContextOptions<QotdContext> options) : base(options)
     {
-        
+        //Database.EnsureCreated();
+        //Database.Migrate();
+
+        //Reverse Engienering
+        //Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=LewQotd;Trusted_Connection=True;MultipleActiveResultSets=true" Microsoft.EntityframeworkCore.SqlServer -OutputDir Models
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        
+        modelBuilder.SeedData();
     }
 }
