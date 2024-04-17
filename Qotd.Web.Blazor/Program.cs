@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Qotd.Data.Context;
+using Qotd.Service;
 using Qotd.Web.Blazor.Components;
 using Qotd.Web.Blazor.Components.Account;
+using Qotd.Web.Blazor.Components.Pages;
 using Qotd.Web.Blazor.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,9 +30,7 @@ builder.Services.AddAuthentication(options =>
 //DB
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddDbContext<QotdContext>(options => options.UseSqlServer(connectionString));
-
-
+builder.Services.AddDbContextFactory<QotdContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -40,6 +40,9 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
     .AddDefaultTokenProviders();
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+
+//DB
+builder.Services.AddScoped<IQotdService, QotdService>();
 
 var app = builder.Build();
 

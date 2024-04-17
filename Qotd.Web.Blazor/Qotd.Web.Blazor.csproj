@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Qotd.Data\Qotd.Data.csproj" />
     <ProjectReference Include="..\Qotd.Domain\Qotd.Domain.csproj" />
+    <ProjectReference Include="..\Qotd.Service\Qotd.Service.csproj" />
     <ProjectReference Include="..\Qotd.Shared\Qotd.Shared.csproj" />
   </ItemGroup>
 
