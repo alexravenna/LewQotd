@@ -15,6 +15,8 @@ public class QotdContext : DbContext
 
     public QotdContext(DbContextOptions<QotdContext> options) : base(options)
     {
+        //ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+
         //Database.EnsureCreated();
         //Database.Migrate();
 

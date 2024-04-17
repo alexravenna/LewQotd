@@ -49,4 +49,16 @@ public class QotdService(IDbContextFactory<QotdContext> dbContextFactory) : IQot
 
         return authorsViewModel;
     }
+
+    public async Task<bool> DeleteAuthorAsync(Guid authorId)
+    {
+        await using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var author = await context.Authors.FindAsync(authorId);
+
+        if (author == null) return false;
+
+        context.Authors.Remove(author);
+        return await context.SaveChangesAsync() > 0;
+    }
 }
