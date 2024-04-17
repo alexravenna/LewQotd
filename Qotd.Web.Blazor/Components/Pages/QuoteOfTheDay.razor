@@ -12,7 +12,8 @@ else
                     <!-- Variante 1 Klassik -->
                     @if (!string.IsNullOrEmpty(QotdVm.AuthorPhotoMimeType))
                     {
-                        <!-- TODO: Bild anzeigen -->
+                        @* https://caniuse.com/?search=data-u *@
+                        <img width="150" src="data:@QotdVm.AuthorPhotoMimeType;base64,@Convert.ToBase64String(QotdVm.AuthorPhoto)"/>
                     }
                     else
                     {
