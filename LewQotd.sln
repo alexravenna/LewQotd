@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qotd.Domain", "Qotd.Domain\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qotd.Data", "Qotd.Data\Qotd.Data.csproj", "{F6A3E332-FD78-4BCE-BDFC-5C564144D6DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qotd.Service", "Qotd.Service\Qotd.Service.csproj", "{E46E3706-226C-4E92-8ACD-BD69956D4633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qotd.Service", "Qotd.Service\Qotd.Service.csproj", "{E46E3706-226C-4E92-8ACD-BD69956D4633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qotd.ComponentsLibrary", "Qotd.ComponentsLibrary\Qotd.ComponentsLibrary.csproj", "{5CD71BCC-C835-4283-81E6-ED1939B2BD2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{E46E3706-226C-4E92-8ACD-BD69956D4633}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E46E3706-226C-4E92-8ACD-BD69956D4633}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E46E3706-226C-4E92-8ACD-BD69956D4633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CD71BCC-C835-4283-81E6-ED1939B2BD2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD71BCC-C835-4283-81E6-ED1939B2BD2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD71BCC-C835-4283-81E6-ED1939B2BD2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD71BCC-C835-4283-81E6-ED1939B2BD2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
