@@ -19,13 +19,13 @@ else
         <tbody>
             @foreach (var item in AuthorsVm)
             {
-                <AuthorItem AuthorVm="@item"></AuthorItem>
+                <AuthorItem OnAuthorDeleteCallback="DeleteAuthor" AuthorVm="@item"></AuthorItem>
             }
         </tbody>
     </table>
 }
 
-
-@code {
-
+@if (!string.IsNullOrEmpty(_errorMessage))
+{
+    <div class="alert alert-danger">_errorMessage</div>
 }

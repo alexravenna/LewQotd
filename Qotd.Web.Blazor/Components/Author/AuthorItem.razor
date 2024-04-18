@@ -12,7 +12,7 @@
         <td>@(AuthorVm.BirthDate is not null ? AuthorVm.BirthDate.Value.ToShortDateString() : "k.A.")</td>
         <td>
             <!-- Aktion -->
-            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+            <button class="btn btn-danger" @onclick="() => DeleteAuthor(AuthorVm.Id)"><i class="bi bi-trash-fill"></i></button>
         </td>
     </tr>
 }
