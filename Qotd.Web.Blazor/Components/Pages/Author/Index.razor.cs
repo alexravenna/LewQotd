@@ -11,6 +11,8 @@ public partial class Index
 
     private string _errorMessage = string.Empty;
 
+    [Inject] public NavigationManager NavManager { get; set; } = default!;
+
     protected override async Task OnInitializedAsync()
     {
         await GetAuthorsAsync();
@@ -37,5 +39,10 @@ public partial class Index
             Logger.LogError(_errorMessage);
             
         }
+    }
+
+    private void NavigateToAuthorNew()
+    {
+        NavManager.NavigateTo("/authors/new");
     }
 }
