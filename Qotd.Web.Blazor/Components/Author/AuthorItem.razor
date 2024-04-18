@@ -17,7 +17,7 @@
     </tr>
 
     <ConfirmDialog ConfirmTitle="Löschen bestätigen"
-                   ConfirmMessage="@($"Sind Sie sicher den Autor {AuthorVm.Name} zu löschen?")"
+                   ConfirmMessage="@($"Sind Sie sicher den Autor <strong>{AuthorVm.Name}</strong> zu löschen?")"
                    OnConfirmChangedCallback="ConfirmDeleteClicked"
                    @ref="ConfirmDialogComponent">
     </ConfirmDialog>

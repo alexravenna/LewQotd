@@ -13,6 +13,13 @@ public partial class ConfirmDialog
 
     [Parameter] public EventCallback<bool> OnConfirmChangedCallback { get; set; }
 
+    private MarkupString _convertedConfirmMessage;
+
+    protected override void OnInitialized()
+    {
+        _convertedConfirmMessage = new MarkupString(Markdig.Markdown.ToHtml(ConfirmMessage));
+    }
+
     public void Show()
     {
         _showConfirm = true;
