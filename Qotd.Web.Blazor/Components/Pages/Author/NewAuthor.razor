@@ -4,6 +4,9 @@
     <div class="col-6">
         <EditForm Model="AuthorForCreateVm" OnValidSubmit="HandleValidSubmit">
             
+            <DataAnnotationsValidator />
+            @* <ValidationSummary /> *@
+
             <!-- Name -->
             <div class="form-floating mb-3">
                 <InputText id="Name"
@@ -12,8 +15,9 @@
                            placeholder=" ">
                 </InputText>
                 <label for="Name">Name</label>
-            </div> 
-            
+                <ValidationMessage For="@(() => AuthorForCreateVm.Name)"></ValidationMessage>
+            </div>
+
             <!-- Beschreibung -->
             <div class="form-floating mb-3">
                 <InputText id="Description"
@@ -22,8 +26,9 @@
                            placeholder=" ">
                 </InputText>
                 <label for="Description">Beschreibung</label>
-            </div> 
-            
+                <ValidationMessage For="@(() => AuthorForCreateVm.Description)"></ValidationMessage>
+            </div>
+
             <!-- Geburtsdatum -->
             <div class="form-floating mb-3">
                 <InputDate id="BirthDate"
@@ -32,7 +37,8 @@
                            placeholder=" ">
                 </InputDate>
                 <label for="BirthDate">Geburtsdatum</label>
-            </div> 
+                <ValidationMessage For="@(() => AuthorForCreateVm.BirthDate)"></ValidationMessage>
+            </div>
             
             <!-- Photo -->
             <div class="form-floating mb-3">
@@ -43,8 +49,9 @@
                            placeholder=" ">
                 </InputFile>
                 <label for="Photo">Photo</label>
+                <ValidationMessage For="@(() => AuthorForCreateVm.Photo)"></ValidationMessage>
             </div>
-            
+
             <div class="d-flex mb-3">
                 <button type="submit" class="btn btn-primary">speichern</button>
             </div>
