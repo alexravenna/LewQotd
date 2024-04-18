@@ -1,5 +1,9 @@
 ﻿@page "/authors/overview"
 
+<p>
+    <button class="btn btn-primary" @onclick="NavigateToAuthorNew"><i class="bi bi-plus-circle"></i> Neuer Autor</button>
+</p>
+
 @if (AuthorsVm is null || !AuthorsVm.Any())
 {
     <div>Daten werden geladen...</div>

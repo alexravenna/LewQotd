@@ -12,4 +12,5 @@ public interface IQotdService
     Task<QuoteOfTheDayViewModel?> GetQuoteOfTheDayAsync();
     Task<IEnumerable<AuthorViewModel>?> GetAuthorsAsync();
     Task<bool> DeleteAuthorAsync(Guid authorId);
+    Task<bool> AddAuthorAsync(AuthorForCreateViewModel authorForCreateViewModel);
 }

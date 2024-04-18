@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Qotd.Data.Context;
+using Qotd.Domain;
 using Qotd.Shared.Model;
+using Qotd.Shared.Utilities;
 
 namespace Qotd.Service;
 
@@ -59,6 +56,27 @@ public class QotdService(IDbContextFactory<QotdContext> dbContextFactory) : IQot
         if (author == null) return false;
 
         context.Authors.Remove(author);
+        return await context.SaveChangesAsync() > 0;
+    }
+
+    public async Task<bool> AddAuthorAsync(AuthorForCreateViewModel authorForCreateViewModel)
+    {
+        var author = new Author() {
+            Name = authorForCreateViewModel.Name, 
+            Description = authorForCreateViewModel.Description,
+            BirthDate = authorForCreateViewModel.BirthDate,
+        };
+
+        if (authorForCreateViewModel.Photo is not null)
+        {
+            var (fileContent, contentType) = await Util.GetFile(authorForCreateViewModel.Photo);
+            author.Photo = fileContent;
+            author.PhotoMimeType = contentType;
+        }
+
+        await using var context = await dbContextFactory.CreateDbContextAsync();
+        await context.Authors.AddAsync(author);
+
         return await context.SaveChangesAsync() > 0;
     }
 }

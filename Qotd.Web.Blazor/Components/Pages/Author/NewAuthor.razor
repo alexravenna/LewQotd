@@ -1,0 +1,55 @@
+﻿@page "/authors/new"
+
+<div class="row align-items-center">
+    <div class="col-6">
+        <EditForm Model="AuthorForCreateVm" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+
+            <!-- Name -->
+            <div class="form-floating mb-3">
+                <InputText id="Name" class="form-control"
+                           @bind-Value="@AuthorForCreateVm.Name"
+                           placeholder=" ">
+                </InputText>
+                <label for="Name">Name</label>
+                <ValidationMessage For="@(() => AuthorForCreateVm.Name)"></ValidationMessage>
+            </div>
+
+            <!-- Beschreibung -->
+            <div class="form-floating mb-3">
+                <InputText id="Description" class="form-control"
+                           @bind-Value="@AuthorForCreateVm.Description"
+                           placeholder=" ">
+                </InputText>
+                <label for="Description">Beschreibung</label>
+                <ValidationMessage For="@(() => AuthorForCreateVm.Description)"></ValidationMessage>
+            </div>
+
+            <!-- Geburtsdatum -->
+            <div class="form-floating mb-3">
+                <InputDate id="BirthDate" class="form-control"
+                           @bind-Value="@AuthorForCreateVm.BirthDate"
+                           placeholder=" ">
+                </InputDate>
+                <label for="BirthDate">Geburtsdatum</label>
+                <ValidationMessage For="@(() => AuthorForCreateVm.BirthDate)"></ValidationMessage>
+            </div>
+
+            <!-- Photo -->
+            <div class="form-floating mb-3">
+                <InputFile id="Photo" class="form-control"
+                           OnChange="OnInputFileChanged"
+                           @bind-Value="@AuthorForCreateVm.Photo"
+                           placeholder=" "
+                           accept="image/*">
+                </InputFile>
+                <label for="Photo">Photo</label>
+                <ValidationMessage For="@(() => AuthorForCreateVm.Photo)"></ValidationMessage>
+
+                <div class="d-flex bm-3">
+                    <button type="submit" class="btn btn-primary">Speichern</button>
+                </div>
+            </div>
+        </EditForm>
+    </div>
+</div>

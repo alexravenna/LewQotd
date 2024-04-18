@@ -8,6 +8,8 @@ public partial class Index
     [Inject] public ILogger<Index> Logger { get; set; } = default!;
     [Inject] public IQotdService QotdService { get; set; } = default!;
     public IEnumerable<AuthorViewModel>? AuthorsVm { get; set; } = default!;
+    [Inject]
+    public NavigationManager NavManager { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -32,5 +34,10 @@ public partial class Index
         {
             Logger.LogError($"Autor mit der Id: {authorId} konnte NICHT gelöscht werden");
         }
+    }
+
+    private void NavigateToAuthorNew()
+    {
+        NavManager.NavigateTo("/authors/new");
     }
 }
