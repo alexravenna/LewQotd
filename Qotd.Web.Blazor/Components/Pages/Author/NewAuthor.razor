@@ -2,12 +2,53 @@
 
 <div class="row align-items-center">
     <div class="col-6">
-        
-        <EditForm Model="AuthorForCreateVm">
+        <EditForm Model="AuthorForCreateVm" OnValidSubmit="HandleValidSubmit">
             
+            <!-- Name -->
             <div class="form-floating mb-3">
-
+                <InputText id="Name"
+                           class="form-control"
+                           @bind-Value="@AuthorForCreateVm.Name"
+                           placeholder=" ">
+                </InputText>
+                <label for="Name">Name</label>
+            </div> 
+            
+            <!-- Beschreibung -->
+            <div class="form-floating mb-3">
+                <InputText id="Description"
+                           class="form-control"
+                           @bind-Value="@AuthorForCreateVm.Description"
+                           placeholder=" ">
+                </InputText>
+                <label for="Description">Beschreibung</label>
+            </div> 
+            
+            <!-- Geburtsdatum -->
+            <div class="form-floating mb-3">
+                <InputDate id="BirthDate"
+                           class="form-control"
+                           @bind-Value="@AuthorForCreateVm.BirthDate"
+                           placeholder=" ">
+                </InputDate>
+                <label for="BirthDate">Geburtsdatum</label>
+            </div> 
+            
+            <!-- Photo -->
+            <div class="form-floating mb-3">
+                <InputFile id="Photo" OnChange="OnInputFileChanged"
+                           class="form-control"
+                           @bind-Value="@AuthorForCreateVm.Photo"
+                           accept="image/*"
+                           placeholder=" ">
+                </InputFile>
+                <label for="Photo">Photo</label>
             </div>
+            
+            <div class="d-flex mb-3">
+                <button type="submit" class="btn btn-primary">speichern</button>
+            </div>
+
 
         </EditForm>
 
