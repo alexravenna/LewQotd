@@ -1,0 +1,22 @@
+﻿@inject NavigationManager NavManager
+
+<span class="text-center small mr-2">Blazor - Version @_runtimeVersion</span>
+
+@code {
+    private string _runtimeVersion = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
+
+    private bool IsWebAssembly => BlazorAppType is "WebAssembly";
+    private bool IsBlazorServer => BlazorAppType is "Server";
+    private bool IsHybrid => BlazorAppType is "Hybrid";
+    private bool IsSsr => BlazorAppType is "SSR";
+
+    public string BlazorAppType =>
+        NavManager.GetType().FullName switch
+        {
+            "Microsoft.AspNetCore.Components.Server.Circuits.RemoteNavigationManager" => "Server",
+            "Microsoft.AspNetCore.Components.WebAssembly.NavigationManager" => "WebAssembly",
+            "Microsoft.AspNetCore.Components.WebView.Services.WebViewNavigationManager" => "Hybrid",
+            "Microsoft.AspNetCore.Components.Endpoints.HttpNavigationManager" => "SSR",
+            _ => "Unknown"
+        };
+}
