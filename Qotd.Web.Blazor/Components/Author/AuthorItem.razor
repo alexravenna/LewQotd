@@ -15,6 +15,12 @@
             <button class="btn btn-danger" @onclick="() => DeleteAuthor(AuthorVm.Id)"><i class="bi bi-trash-fill"></i></button>
         </td>
     </tr>
+
+    <ConfirmDialog ConfirmTitle="Löschen bestätigen"
+                   ConfirmMessage="@($"Sind Sie sicher den Autor {AuthorVm.Name} zu löschen?")"
+                   OnConfirmChangedCallback="ConfirmDeleteClicked"
+                   @ref="ConfirmDialogComponent">
+    </ConfirmDialog>
 }
 
 
