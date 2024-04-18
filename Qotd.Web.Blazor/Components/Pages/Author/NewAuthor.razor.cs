@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Qotd.Service;
 using Qotd.Shared.Model;
 using Qotd.Shared.Utilities;
 
@@ -11,11 +12,19 @@ public partial class NewAuthor
 
     protected override void OnInitialized() => AuthorForCreateVm ??= new();
     [Inject] public ILogger<NewAuthor> Logger { get; set; } = default!;
+    [Inject] public IQotdService QotdService { get; set; } = default!;
+    [Inject] public NavigationManager NavManager { get; set; } = default!;
 
-    private Task HandleValidSubmit(EditContext arg)
+    private async Task HandleValidSubmit(EditContext arg)
     {
         Logger.LogInformation($"Valid Submit aufgerufen... {AuthorForCreateVm?.LogAsJson()}");
-        return Task.CompletedTask;
+
+        var saved = await QotdService.AddAuthorAsync(AuthorForCreateVm);
+
+        if (saved)
+        {
+            NavManager.NavigateTo("/authors/overview");
+        }
     }
 
     private void OnInputFileChanged(InputFileChangeEventArgs arg)
